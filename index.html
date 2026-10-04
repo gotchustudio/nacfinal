@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Neat &amp; Clean Laundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Editorial type and glass panels over a soft water-toned field. */
+:root{
+  --ink:#0A2530;
+  --tide:#0B8FA0;
+  --foam:#37C6D0;
+  --sun:#FFC94D;
+  --bg:#EAF3F4;
+  --bg-2:#DCEBEE;
+  --fg:#0A2530;
+  --muted:#46636D;
+  --card:#F8FCFC;
+  --glass:rgba(255,255,255,.58);
+  --glass-strong:rgba(255,255,255,.82);
+  --glass-b:rgba(255,255,255,.85);
+  --line:rgba(10,37,48,.12);
+  --accent:#0B8FA0;
+  --accent-text:#0A6F7D;
+  --accent-soft:rgba(11,143,160,.12);
+  --cta-bg:#0A2530;
+  --cta-fg:#F2FAFB;
+  --good:#17805A;
+  --warn:#9A6200;
+  --bad:#B3261E;
+  --shadow:0 24px 60px -24px rgba(10,37,48,.35);
+  --shadow-sm:0 8px 24px -12px rgba(10,37,48,.28);
+  --mesh-1:rgba(55,198,208,.45);
+  --mesh-2:rgba(255,201,77,.28);
+  --mesh-3:rgba(11,143,160,.22);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r-lg:28px;
+  --r-md:18px;
+  --r-sm:12px;
+}
+:root[data-theme="dark"]{
+  --bg:#06141B;--bg-2:#0A1E27;--fg:#E8F4F5;--muted:#9BB8BF;--card:#0C222B;
+  --glass:rgba(255,255,255,.06);--glass-strong:rgba(14,38,48,.82);--glass-b:rgba(255,255,255,.14);
+  --line:rgba(232,244,245,.14);--accent:#3FD0DA;--accent-text:#59D9E2;--accent-soft:rgba(63,208,218,.14);
+  --cta-bg:#E8F4F5;--cta-fg:#06222A;--good:#52D6A0;--warn:#F2B84B;--bad:#FF8A80;
+  --shadow:0 24px 60px -24px rgba(0,0,0,.7);--shadow-sm:0 8px 24px -12px rgba(0,0,0,.6);
+  --mesh-1:rgba(15,163,177,.35);--mesh-2:rgba(255,201,77,.10);--mesh-3:rgba(55,198,208,.14);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font:400 clamp(15px,1.05vw + 11px,17px)/1.6 var(--f-body);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(60vmax 50vmax at 88% -8%,var(--mesh-1),transparent 60%),
+    radial-gradient(50vmax 40vmax at -10% 30%,var(--mesh-3),transparent 60%),
+    radial-gradient(40vmax 30vmax at 70% 85%,var(--mesh-2),transparent 62%),
+    var(--bg);
+}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.02;font-variation-settings:"wdth" 88,"opsz" 72}
+p{margin:0;max-width:62ch}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.i{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+section{padding-block:clamp(72px,10vw,136px);scroll-margin-top:72px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--cta-bg);color:var(--cta-fg);padding:10px 16px;border-radius:10px;z-index:100}
+.skip:focus{top:12px}
+
+/* Type scale */
+.h-xl{font-size:clamp(2.9rem,8.6vw,7rem);line-height:.9;letter-spacing:-.045em;font-weight:760;font-variation-settings:"wdth" 80,"opsz" 96}
+.h-lg{font-size:clamp(2.2rem,5.2vw,4.2rem);letter-spacing:-.035em;font-variation-settings:"wdth" 84,"opsz" 96}
+.h-md{font-size:clamp(1.35rem,2.2vw,1.8rem);letter-spacing:-.02em}
+.lede{font-size:clamp(1.05rem,1.4vw + .6rem,1.3rem);color:var(--muted);line-height:1.5}
+.muted{color:var(--muted)}
+.tabular{font-variant-numeric:tabular-nums}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(36px,5vw,64px)}
+
+/* Glass */
+.glass{
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid var(--glass-b);
+  box-shadow:var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.35);
+  border-radius:var(--r-md);
+}
+
+/* Buttons */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 26px;border-radius:999px;border:1px solid transparent;
+  font-weight:600;font-size:1rem;text-decoration:none;overflow:hidden;isolation:isolate;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s;
+}
+.btn .i{transition:transform .25s}
+.btn:hover .i.go{transform:translateX(4px)}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--cta-bg);color:var(--cta-fg);box-shadow:0 14px 30px -14px var(--cta-bg)}
+.btn-primary::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(110deg,transparent 30%,rgba(55,198,208,.55) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:var(--glass);border-color:var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.btn-ghost:hover{background:var(--glass-strong);transform:translateY(-2px)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn-sm{min-height:42px;padding:0 18px;font-size:.94rem}
+.icon-btn{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  background:var(--glass);border:1px solid var(--line);transition:transform .25s,background .25s;
+}
+.icon-btn:hover{transform:rotate(12deg) scale(1.05);background:var(--glass-strong)}
+
+/* Reveal: always visible, only position eases */
+.rv{transform:translateY(26px);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{transform:none}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;padding-top:calc(10px + env(safe-area-inset-top,0px));transition:padding .25s ease}
+.nav-in{
+  display:flex;align-items:center;gap:12px;justify-content:space-between;
+  min-height:58px;padding:7px 8px 7px 18px;border-radius:999px;
+  background:var(--glass-strong);background-image:linear-gradient(135deg,rgba(255,255,255,.16),transparent 48%,rgba(55,198,208,.06));border-color:var(--glass-b);
+  -webkit-backdrop-filter:blur(24px) saturate(1.6);backdrop-filter:blur(24px) saturate(1.6);
+  box-shadow:0 14px 38px -22px rgba(10,37,48,.48),inset 0 1px 0 rgba(255,255,255,.56),inset 0 -1px 0 rgba(255,255,255,.12);
+  transition:background .25s,border-color .25s,box-shadow .25s,padding .25s,min-height .25s;
+}
+.nav.is-scrolled{padding-top:calc(6px + env(safe-area-inset-top,0px))}
+.nav.is-scrolled .nav-in{min-height:54px;background:var(--glass-strong);box-shadow:0 14px 36px -22px rgba(10,37,48,.5),inset 0 1px 0 rgba(255,255,255,.4)}
+.logo{display:flex;flex:none;flex-direction:column;justify-content:center;gap:0;text-decoration:none;line-height:1}
+.logo strong{font-family:var(--f-display);font-weight:760;font-size:1.35rem;letter-spacing:0;font-variation-settings:"wdth" 82;white-space:nowrap}
+.logo small{margin-top:4px;color:var(--muted);font-size:.57rem;font-weight:600;letter-spacing:.12em;line-height:1;text-transform:uppercase}
+.nav-links{display:none;align-items:center;gap:2px}
+.nav-links a,.mobile-links a{position:relative;text-decoration:none;font-weight:500;color:var(--muted);transition:color .2s,background .2s,transform .2s}
+.nav-links a{padding:9px 10px;border-radius:999px;font-size:.89rem;white-space:nowrap}
+.nav-links a:hover,.nav-links a.on{color:var(--fg);background:var(--accent-soft)}
+.nav-links a:active,.mobile-links a:active{transform:scale(.98)}
+.nav-r{display:flex;align-items:center;gap:8px}
+.nav-r .icon-btn{width:40px;height:40px}
+.lang-toggle{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--glass);font-size:.73rem;white-space:nowrap}
+.lang-toggle>.i{width:15px;height:15px;margin-inline:3px;color:var(--accent-text)}
+.lang-toggle button{min-height:29px;padding:0 7px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:inherit;font-weight:600;transition:background .2s,color .2s}
+.lang-toggle button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-text)}
+.lang-toggle span{color:var(--muted);opacity:.65}
+.menu-toggle{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:var(--glass);transition:background .2s,transform .2s,border-color .2s}
+.menu-toggle:hover{background:var(--glass-strong);border-color:var(--glass-b)}
+.menu-toggle:active{transform:scale(.94)}
+.menu-toggle .i{width:20px;height:20px}
+.mobile-menu[hidden],.menu-backdrop[hidden]{display:none}
+.menu-backdrop{position:fixed;inset:0;z-index:110;background:rgba(4,22,29,.4);-webkit-backdrop-filter:blur(14px) saturate(1.25);backdrop-filter:blur(14px) saturate(1.25);opacity:0;transition:opacity .32s ease}
+.menu-backdrop.is-open{opacity:1}
+.mobile-drawer{position:fixed;inset:0 0 0 auto;z-index:120;display:flex;flex-direction:column;width:min(88vw,420px);height:100vh;height:100dvh;padding:calc(22px + env(safe-area-inset-top,0px)) 24px calc(22px + env(safe-area-inset-bottom,0px));overflow-y:auto;background:var(--glass-strong);background-image:linear-gradient(150deg,rgba(255,255,255,.2),transparent 40%,rgba(55,198,208,.1));border-left:1px solid var(--glass-b);box-shadow:-28px 0 70px -32px rgba(10,37,48,.55),inset 1px 0 0 rgba(255,255,255,.48),inset 0 1px 0 rgba(255,255,255,.38);-webkit-backdrop-filter:blur(36px) saturate(1.8);backdrop-filter:blur(36px) saturate(1.8);transform:translateX(102%);transition:transform .36s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+.mobile-drawer.is-open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:25px;border-bottom:1px solid var(--line)}
+.drawer-label{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.drawer-close{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--glass);transition:background .2s,transform .2s}
+.drawer-close:hover{background:var(--accent-soft)}
+.drawer-close:active{transform:scale(.94)}
+.mobile-links{display:grid;gap:4px;padding-block:18px;}
+.mobile-links a{display:flex;align-items:center;min-height:56px;padding:0 12px;border-radius:12px;font-family:var(--f-display);font-size:1.25rem;font-weight:600;color:var(--fg)}
+.mobile-links a:hover,.mobile-links a.on{background:var(--accent-soft);color:var(--accent-text)}
+.drawer-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.drawer-foot .btn{width:100%}
+.drawer-social{display:grid;gap:11px;margin-top:auto;padding:16px 0 18px;border-top:1px solid var(--line)}
+.drawer-social-title{margin:0;color:var(--muted);font-size:.76rem;font-weight:650;letter-spacing:.08em;text-transform:uppercase}
+.drawer-social-links{display:flex;align-items:center;gap:11px}
+.drawer-social-link{display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--glass-b);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.42),var(--glass));box-shadow:0 8px 20px -16px rgba(10,37,48,.55),inset 0 1px 0 rgba(255,255,255,.62);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);transition:transform .22s,border-color .22s,box-shadow .22s,background .22s}
+.drawer-social-link:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 12px 24px -16px currentColor,inset 0 1px 0 rgba(255,255,255,.72)}
+.drawer-social-link .social-icon{width:22px;height:22px}
+.drawer-social-link[aria-disabled="true"]{cursor:default}
+.drawer-social-link[aria-disabled="true"]:hover{transform:none}
+.drawer-social-facebook{color:#0866FF}
+.drawer-social-instagram{color:#D62976}
+.drawer-social-tiktok{color:var(--fg)}
+.drawer-foot{margin-top:0}
+.menu-open{overflow:hidden}
+@media (max-width:979px){.menu-open .nav{visibility:hidden}}
+@media (min-width:980px){.nav-links{display:flex}.menu-toggle,.mobile-menu,.menu-backdrop{display:none!important}}
+@media (max-width:599px){.logo strong{font-size:1.05rem}.logo small{font-size:.5rem}.nav-r>.icon-btn{display:none}.nav-in{padding-left:12px}.nav-r{gap:6px}.nav-r>.btn{min-height:40px;padding-inline:11px;font-size:.84rem}.lang-toggle{gap:1px;padding:2px;font-size:.7rem}.lang-toggle>.i{width:14px;height:14px;margin-inline:2px}.lang-toggle button{min-height:28px;padding-inline:6px;font-size:inherit}}
+@media (max-width:360px){.logo strong{font-size:.94rem}.logo small{font-size:.46rem}.nav-r>.btn{padding-inline:9px;font-size:.8rem}.nav-in{gap:5px}.lang-toggle button{padding-inline:5px;font-size:.67rem}}
+.theme-ic-moon{display:none}
+:root[data-theme="dark"] .theme-ic-sun{display:none}
+:root[data-theme="dark"] .theme-ic-moon{display:block}
+
+/* Hero */
+.hero{padding-block:clamp(24px,4vw,56px) clamp(52px,8vw,104px)}
+.hero-grid{display:grid;gap:clamp(30px,6vw,76px);grid-template-columns:minmax(0,1fr);align-items:center}
+@media (min-width:980px){.hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}}
+.hero-copy{display:grid;gap:22px;justify-items:start;align-content:center;animation:hero-enter .7s cubic-bezier(.2,.8,.2,1) both}
+.hero-kicker{display:flex;align-items:center;gap:10px;color:var(--accent-text);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.hero-kicker::before{content:"";width:24px;height:1px;background:var(--accent)}
+.hero-copy h1{max-width:11ch;font-size:clamp(3rem,6.8vw,6.4rem);line-height:.96;letter-spacing:0}
+.hero-copy .lede{max-width:36ch;font-size:clamp(1.02rem,1.35vw + .55rem,1.22rem)}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.hero-actions .btn{min-height:54px;padding-inline:24px}
+.hero-secondary{background:var(--glass-strong);border-color:var(--glass-b)}
+.hero-secondary .i{transition:transform .25s}
+.hero-secondary:hover .i{transform:translateX(4px)}
+.hero-visual{position:relative;isolation:isolate;overflow:hidden;width:min(100%,600px);aspect-ratio:1.05;margin-inline:auto;border:1px solid var(--glass-b);border-radius:30px;background:var(--glass-strong);box-shadow:var(--shadow);animation:hero-enter .8s .1s cubic-bezier(.2,.8,.2,1) both}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;overflow:hidden}
+.linen-stack{position:absolute;left:15%;bottom:14%;width:70%;height:57%;transform:rotate(-7deg)}
+.linen-fold{position:absolute;left:0;width:100%;height:31%;border:1px solid rgba(255,255,255,.72);border-radius:22px 28px 18px 22px;background:linear-gradient(165deg,#fff 0%,#f5faf8 46%,#d9e6e2 100%);box-shadow:0 20px 36px -24px rgba(10,37,48,.48),inset 0 2px 0 rgba(255,255,255,.85)}
+.linen-fold::after{content:"";position:absolute;left:10%;top:20%;width:42%;height:60%;border-radius:50%;background:linear-gradient(110deg,rgba(255,255,255,.72),rgba(255,255,255,0));transform:skewX(-18deg)}
+.linen-fold.fold-back{top:0;left:12%;width:76%;height:35%;background:linear-gradient(165deg,#fff 0%,#e9f2ee 60%,#cbded8 100%)}
+.linen-fold.fold-middle{top:25%;left:4%;width:92%;height:34%;background:linear-gradient(165deg,#fff 0%,#f0f6f3 56%,#d2e2dc 100%)}
+.linen-fold.fold-front{top:51%;height:39%;background:linear-gradient(165deg,#fff 0%,#f4f8f5 54%,#d5e1db 100%)}
+.hero-pill,.hero-note{position:absolute;z-index:2;border:1px solid rgba(255,255,255,.78);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(18px) saturate(1.35);backdrop-filter:blur(18px) saturate(1.35);box-shadow:0 14px 34px -22px rgba(10,37,48,.38)}
+.hero-pill{top:20px;right:20px;display:flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border-radius:999px;color:var(--ink);font-size:.82rem;font-weight:600}
+.hero-pill .i{width:16px;height:16px;color:var(--accent-text)}
+.hero-note{left:20px;bottom:20px;display:flex;align-items:center;gap:11px;padding:12px 16px;border-radius:16px;color:var(--ink)}
+.hero-note .ic-dot{width:36px;height:36px;border-radius:12px;background:var(--accent);color:#fff}
+.hero-note b,.hero-note small{display:block}
+.hero-note b{font-size:.92rem;font-weight:650;line-height:1.25}
+.hero-note small{margin-top:2px;color:var(--muted);font-size:.78rem}
+.ic-dot{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-text);flex:none}
+@keyframes hero-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:640px){
+  .hero{padding-block-start:24px}
+  .hero-grid{gap:22px}
+  .hero-copy{gap:16px}
+  .hero-copy h1{max-width:12ch;font-size:clamp(2.8rem,11.5vw,3.6rem);line-height:.98}
+  .hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:8px}
+  .hero-actions .btn{min-width:0;min-height:50px;padding-inline:10px;gap:6px;font-size:.82rem;white-space:nowrap}
+  .hero-actions .btn-primary .i.go{display:none}
+  .hero-visual{aspect-ratio:1.5;border-radius:24px}
+  .hero-pill{top:14px;right:14px}
+  .hero-note{left:14px;bottom:14px}
+}
+@media (max-width:360px){.hero-actions .btn{padding-inline:4px;gap:4px;font-size:.68rem}}
+.av{width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);margin-left:-9px;display:grid;place-items:center;font-size:.72rem;font-weight:700;color:#06222A}
+.av:first-child{margin-left:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Trust strip */
+.strip{padding-block:0 clamp(24px,4vw,40px)}
+.strip-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:20px;border-radius:var(--r-lg)}
+@media (min-width:860px){.strip-in{grid-template-columns:repeat(4,minmax(0,1fr));padding:26px 32px}}
+.strip-item{display:flex;align-items:center;gap:12px;font-weight:500;font-size:.95rem;line-height:1.3}
+
+/* Services */
+.svc-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.svc:first-child{grid-column:1/-1}}
+@media (min-width:980px){
+  .svc-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+  .svc:nth-child(1){grid-column:span 7}.svc:nth-child(2){grid-column:span 5}
+  .svc:nth-child(n+3){grid-column:span 4}
+}
+.svc{position:relative;display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid var(--glass-b);border-radius:var(--r-lg);background:var(--glass);-webkit-backdrop-filter:blur(18px) saturate(1.35);backdrop-filter:blur(18px) saturate(1.35);box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s,background .35s}
+.svc:hover{transform:translateY(-5px);border-color:rgba(11,143,160,.3);background:var(--glass-strong);box-shadow:var(--shadow)}
+.svc:focus-within{border-color:var(--accent)}
+.svc-art{position:relative;isolation:isolate;display:grid;height:clamp(112px,14vw,172px);place-items:center;overflow:hidden}
+.svc-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svc-icon{display:grid;width:68px;height:68px;place-items:center;border:1px solid rgba(255,255,255,.76);border-radius:21px;background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 14px 30px -20px rgba(10,37,48,.4);transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s}
+.svc-icon .i{width:33px;height:33px;stroke-width:1.6}
+.svc:hover .svc-icon{transform:translateY(-3px) scale(1.06);background:rgba(255,255,255,.66)}
+.art-a{background:linear-gradient(135deg,#bfeef1,#7fd5dc 55%,#37c6d0)}
+.art-b{background:linear-gradient(135deg,#ffe9b0,#ffd36b 60%,#ffc94d)}
+.art-c{background:linear-gradient(135deg,#d6e6f2,#a8c9e3 60%,#7fb0d6)}
+.art-d{background:linear-gradient(135deg,#cfe9e1,#9fd6c3 60%,#6cc0a6)}
+.art-e{background:linear-gradient(135deg,#dceee7,#b9ddd1 58%,#ffe2a0)}
+.svc-body{display:grid;flex:1;align-content:start;gap:12px;padding:20px 22px 22px}
+.svc-top{display:flex;width:100%;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}
+.svc-body>p{font-size:.92rem;line-height:1.5;color:var(--muted)}
+.svc-contact{display:flex;width:100%;justify-content:flex-start;margin-top:auto;border-color:var(--line)}
+.svc-contact .i{transition:transform .25s}
+.svc-contact .i:last-child{margin-left:auto}
+.svc-contact:hover .i{transform:translateX(4px)}
+@media (max-width:639px){.svc-grid{gap:12px}.svc-art{height:116px}.svc-body{padding:18px}.svc-top{gap:7px}}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;border:0;background:none;padding:0;min-height:44px;color:var(--accent-text)}
+.link .i{transition:transform .25s}
+.link:hover .i{transform:translateX(5px)}
+
+/* Process */
+.steps{position:relative;display:grid;gap:18px;grid-template-columns:minmax(0,1fr);--p:0}
+@media (min-width:860px){.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.step{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 56px;grid-template-rows:auto 1fr;gap:20px 14px;align-content:start;min-height:238px;padding:24px;border:1px solid var(--glass-b);border-radius:var(--r-lg);background:var(--glass);box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s,border-color .32s,background .32s}
+.step:hover{transform:translateY(-4px);border-color:rgba(11,143,160,.3);background:var(--glass-strong);box-shadow:var(--shadow)}
+.step-n{font-family:var(--f-display);font-weight:700;font-size:2.65rem;line-height:1;letter-spacing:0;color:var(--accent-text);font-variation-settings:"wdth" 82}
+.step-art{grid-column:2;grid-row:1;width:56px;height:56px;border:1px solid var(--glass-b);border-radius:17px;background:var(--glass-strong);display:grid;place-items:center;box-shadow:0 8px 24px -18px rgba(10,37,48,.4);transition:transform .32s,background .32s}
+.step-art .i{width:27px;height:27px;color:var(--accent-text);stroke-width:1.65;transition:transform .32s}
+.step:hover .step-art{transform:translateY(-2px);background:var(--accent-soft)}
+.step:hover .step-art .i{transform:scale(1.06)}
+.step-copy{grid-column:1/-1;align-self:end}
+.step-copy h3{font-size:clamp(1.4rem,2vw,1.75rem);line-height:1.15;letter-spacing:0}
+.step-copy p{margin-top:9px;color:var(--muted);font-size:.96rem;line-height:1.45}
+.step:not(:last-child)::after{content:"";position:absolute;z-index:2;top:51px;right:-24px;width:24px;height:1px;background:linear-gradient(90deg,var(--accent),rgba(11,143,160,.2))}
+.track{position:relative;height:2px;border-radius:9px;background:var(--line);margin:0 0 24px;overflow:hidden}
+.track i{position:absolute;inset:0;width:calc(var(--p)*100%);background:linear-gradient(90deg,var(--foam),var(--tide));border-radius:9px;transition:width .3s linear}
+.steps-cta{display:flex;justify-content:center;padding-top:26px}
+.steps-cta .btn{min-width:190px}
+@media (max-width:859px){.steps{gap:14px}.step:not(:last-child)::after{top:auto;right:auto;bottom:-14px;left:51px;width:1px;height:14px;background:linear-gradient(180deg,var(--accent),rgba(11,143,160,.2))}}
+@media (max-width:639px){.steps-cta{padding-top:20px}.steps-cta .btn{width:100%;max-width:360px}}
+/* Areas */
+.areas{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+#areas{scroll-margin-top:calc(88px + env(safe-area-inset-top,0px))}
+@media (min-width:900px){.areas{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:stretch}}
+.map{position:relative;isolation:isolate;align-self:center;width:100%;aspect-ratio:10/7;min-height:300px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--glass-b);background:linear-gradient(145deg,var(--bg-2),var(--glass-strong));box-shadow:var(--shadow-sm)}
+.map svg{position:absolute;inset:-2%;width:104%;height:104%;animation:map-drift 34s ease-in-out infinite alternate}
+@keyframes map-drift{to{transform:scale(1.035) translate(-.4%,.3%)}}
+#pins{position:absolute;inset:0;z-index:2}
+.map-badge{position:absolute;z-index:3;top:16px;left:16px;display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid var(--glass-b);border-radius:999px;background:var(--glass-strong);box-shadow:var(--shadow-sm);font-size:.82rem;font-weight:600;pointer-events:none;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.map-badge .i{width:16px;height:16px;color:var(--accent-text)}
+.pin{position:absolute;transform:translate(-50%,-100%);background:none;border:0;padding:0;width:44px;height:52px;display:grid;place-items:center;transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
+.pin-d{width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--tide);border:3px solid #fff;box-shadow:0 6px 14px rgba(10,37,48,.35);transition:all .3s}
+.pin.hub .pin-d{background:var(--sun)}
+.pin:hover{transform:translate(-50%,-112%)}
+.pin[aria-pressed="true"]{transform:translate(-50%,-118%) scale(1.25);z-index:3}
+.pin[aria-pressed="true"] .pin-d{background:var(--cta-bg);border-color:var(--sun)}
+.pin-l{position:absolute;top:calc(100% - 4px);left:50%;transform:translateX(-50%);font-size:.7rem;font-weight:600;background:var(--glass-strong);padding:2px 8px;border-radius:999px;white-space:nowrap;pointer-events:none;border:1px solid var(--line)}
+@media (max-width:560px){.pin-l{display:none}.pin[aria-pressed="true"] .pin-l{display:block}}
+.legend{position:absolute;z-index:3;left:12px;bottom:12px;display:flex;gap:14px;padding:9px 14px;font-size:.78rem;border-radius:999px}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:10px;height:10px;border-radius:50%;display:block}
+.area-side{display:grid;gap:16px;align-content:start}
+.area-panel-head{display:grid;gap:5px}
+.area-panel-head h3{font-size:1.4rem}
+.area-panel-head p{font-size:.9rem;color:var(--muted)}
+.finder{display:grid;gap:8px}
+.finder input{min-height:52px;padding:0 17px;border-radius:15px;border:1px solid var(--line);background:var(--glass-strong);color:var(--fg);font:inherit;width:100%;box-shadow:0 6px 20px -16px rgba(10,37,48,.3);transition:border-color .2s,box-shadow .2s}
+.finder input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.area-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.area-option{display:flex;min-width:0;min-height:44px;align-items:center;justify-content:flex-start;padding:8px 11px;border:1px solid var(--line);border-radius:12px;background:var(--glass);color:var(--muted);font:500 .88rem/1.25 var(--f-body);text-align:left;transition:transform .2s,border-color .2s,background .2s,color .2s}
+.area-option:hover{transform:translateY(-1px);border-color:var(--accent);color:var(--fg)}
+.area-option[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-text);font-weight:600}
+.area-card{display:grid;gap:13px;padding:22px;border:1px solid var(--glass-b);border-radius:var(--r-lg);background:var(--glass);box-shadow:var(--shadow-sm)}
+.area-card h3{font-size:1.7rem}
+.area-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.area-status{display:flex;align-items:center;gap:8px;color:var(--good);font-size:.82rem;font-weight:600}
+.area-status i{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px var(--accent-soft)}
+.area-meta{display:flex;flex-wrap:wrap;gap:8px}
+.area-window{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--accent-soft);font-size:.84rem}
+.area-window span{color:var(--muted)}
+.area-window b{font-weight:650;text-align:right;color:var(--fg)}
+.area-card .btn{justify-self:start}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent-text);font-size:.82rem;font-weight:600}
+.tag.sun{background:rgba(255,201,77,.28);color:var(--warn)}
+@media (max-width:560px){.areas{gap:18px}.map{min-height:0;border-radius:22px}.map-badge{top:12px;left:12px;font-size:.76rem}.legend{left:10px;bottom:10px;gap:10px;padding:8px 11px}.area-side{gap:13px}.area-card{padding:18px}}
+
+/* Why */
+.bento{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.b1{grid-column:1/-1}}
+@media (min-width:980px){.bento{grid-template-columns:repeat(6,minmax(0,1fr))}.b1{grid-column:span 4}.b2{grid-column:span 2}.b3{grid-column:span 2}.b4{grid-column:span 2}.b5{grid-column:span 2}}
+.tile{position:relative;padding:26px;border-radius:var(--r-lg);overflow:hidden;display:grid;gap:22px;align-content:space-between;min-height:236px;background:var(--glass);border:1px solid var(--glass-b);-webkit-backdrop-filter:blur(20px) saturate(1.35);backdrop-filter:blur(20px) saturate(1.35);box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .34s cubic-bezier(.2,.8,.2,1),border-color .34s,box-shadow .34s,background .34s}
+.tile:hover{transform:translateY(-4px);border-color:rgba(11,143,160,.28);background:var(--glass-strong);box-shadow:var(--shadow)}
+.tile h3{font-size:1.35rem;line-height:1.18}
+.tile p{color:var(--muted);font-size:.94rem;line-height:1.5}
+.tile.featured{background:linear-gradient(135deg,var(--accent-soft),var(--glass-strong));border-color:rgba(11,143,160,.24)}
+.tile.dark{background:linear-gradient(150deg,#0B8FA0,#06303C);color:#EAF8F9;border-color:transparent}
+.tile.dark p{color:#BFE3E8}
+.big{font-family:var(--f-display);font-weight:780;font-size:clamp(4rem,9vw,7rem);line-height:.85;letter-spacing:-.06em;font-variation-settings:"wdth" 78}
+.ringc{width:120px;height:120px}
+.ringc circle{fill:none;stroke-width:10;stroke-linecap:round}
+.ringc .bg{stroke:var(--line)}
+.ringc .fg{stroke:var(--accent);stroke-dasharray:314;stroke-dashoffset:314;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.tile.in-view .ringc .fg{stroke-dashoffset:78}
+.benefit-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.benefit-icon{display:grid;width:52px;height:52px;place-items:center;border:1px solid var(--glass-b);border-radius:17px;background:var(--glass-strong);color:var(--accent-text);box-shadow:0 10px 24px -18px rgba(10,37,48,.45);transition:transform .3s,background .3s}
+.benefit-icon .i{width:25px;height:25px;stroke-width:1.7}
+.tile:hover .benefit-icon{transform:translateY(-2px);background:var(--accent-soft)}
+.benefit-index{font-family:var(--f-display);font-size:.8rem;font-weight:650;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.benefit-copy{display:grid;gap:8px;max-width:38ch}
+.benefit-stat{font-family:var(--f-display);font-size:3.5rem;font-weight:760;line-height:.95;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.quality-ring{position:relative;width:96px;height:96px}
+.quality-ring .ringc{width:96px;height:96px}
+.ring-center{position:absolute;inset:0;display:grid;place-items:center;color:var(--accent-text)}
+.ring-center .i{width:27px;height:27px;stroke-width:2}
+.why-cta{display:flex;justify-content:center;padding-top:28px}
+.why-cta .btn{min-width:190px}
+@media (max-width:639px){.tile{min-height:204px;padding:22px}.why-cta{padding-top:20px}.why-cta .btn{width:100%;max-width:360px}}
+
+/* Reviews */
+.rev-top{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-bottom:26px}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font-family:var(--f-display);font-size:3.2rem;line-height:1;letter-spacing:0}
+.stars{display:flex;gap:2px;color:#F2A900}
+.stars .i{fill:currentColor;stroke:none;width:18px;height:18px}
+.score-note{display:block;margin-top:3px;color:var(--muted);font-size:.84rem}
+.rail{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:6px clamp(16px,4vw,40px) 26px;margin-inline:calc(clamp(16px,4vw,40px)*-1);scroll-padding-inline:clamp(16px,4vw,40px);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rev{flex:0 0 min(86vw,360px);min-height:232px;scroll-snap-align:start;padding:24px;border:1px solid var(--glass-b);border-radius:var(--r-lg);display:grid;gap:18px;align-content:space-between;background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(1.35);backdrop-filter:blur(20px) saturate(1.35);box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .32s cubic-bezier(.2,.8,.2,1),border-color .32s,background .32s,box-shadow .32s}
+.rev:hover{transform:translateY(-4px);border-color:rgba(11,143,160,.28);background:var(--glass-strong);box-shadow:var(--shadow)}
+.rev blockquote{margin:0;font-family:var(--f-display);font-size:1.32rem;line-height:1.3;letter-spacing:0;font-weight:500;font-variation-settings:"wdth" 94,"opsz" 24}
+.who{display:flex;align-items:center;gap:12px;font-size:.9rem}
+.who .av{margin:0;width:42px;height:42px;font-size:.85rem;border:0}
+.who b{font-weight:650}
+.who small{display:block;color:var(--muted)}
+.rev-ctl{display:flex;gap:8px}
+@media (max-width:560px){.rev-top{gap:16px;margin-bottom:18px}.score{gap:12px}.score b{font-size:2.8rem}.stars .i{width:16px;height:16px}.rev{flex-basis:86vw;min-height:220px;padding:21px}.rev blockquote{font-size:1.22rem}}
+
+/* Social profiles */
+.social-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.social-card{display:flex;align-items:center;gap:16px;min-height:104px;padding:20px 22px;border:1px solid var(--glass-b);border-radius:var(--r-md);text-decoration:none;transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s,background .28s,box-shadow .28s}
+.social-card[href]{cursor:pointer}
+.social-card:hover{transform:translateY(-4px) scale(1.01);border-color:rgba(11,143,160,.32);background:var(--glass-strong);box-shadow:var(--shadow)}
+.social-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.social-icon-wrap{width:52px;height:52px;flex:none;display:grid;place-items:center;border-radius:16px;background:var(--accent-soft);transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s}
+.social-card:hover .social-icon-wrap{transform:scale(1.06);box-shadow:0 8px 22px -12px currentColor}
+.social-icon{width:27px;height:27px;fill:currentColor}
+.social-facebook{color:#0866FF}
+.social-instagram{color:#D62976}
+.social-tiktok{color:var(--fg)}
+.social-name{font-family:var(--f-display);font-size:1.25rem;font-weight:650;letter-spacing:-.01em}
+@media (min-width:640px){.social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:980px){.social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* FAQ */
+.faq-grid{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.faq-grid{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}}
+.faq{display:grid;gap:10px}
+.qa{border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);overflow:hidden;transition:background .3s}
+.qa.open{background:var(--glass-strong)}
+.qa h3{font-size:inherit;letter-spacing:0;font-family:var(--f-body);font-weight:600;line-height:1.3;font-variation-settings:normal}
+.q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:20px 22px;background:none;border:0;font-weight:600;font-size:1.06rem;min-height:64px}
+.q .pm{width:32px;height:32px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;flex:none;transition:transform .35s cubic-bezier(.3,1.4,.5,1),background .3s}
+.qa.open .pm{transform:rotate(135deg);background:var(--accent);color:#fff}
+.a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.qa.open .a{grid-template-rows:1fr}
+.a>div{overflow:hidden}
+.a p{padding:0 22px 22px;color:var(--muted)}
+
+/* Contact */
+.contact{display:grid;gap:20px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.contact{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.c-list{display:grid;gap:12px;align-content:start}
+.c-item{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:var(--r-md)}
+.c-item div{min-width:0;flex:1}
+.c-item small{display:block;color:var(--muted);font-size:.8rem}
+.c-item b{font-weight:600;overflow-wrap:anywhere;user-select:all}
+.cp{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);font-weight:600;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:all .2s}
+.cp:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;font-size:.94rem;font-variant-numeric:tabular-nums;padding:20px;border-radius:var(--r-md)}
+.hours dt{color:var(--muted)}.hours dd{margin:0;text-align:right;font-weight:500}
+.loc{position:relative;min-height:340px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,var(--bg-2),var(--card))}
+.loc>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.loc-card{position:absolute;left:16px;right:16px;bottom:16px;padding:16px 18px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;border-radius:var(--r-md);background:var(--glass-strong);color:inherit;text-decoration:none;transition:transform .22s,background .22s}
+.loc-card:hover{transform:translateY(-2px);background:var(--glass-strong)}
+.loc-card-copy{display:grid;min-width:0;gap:3px}
+.loc-card-copy b{display:block}
+.loc-card-copy span{color:var(--muted);font-size:.84rem;line-height:1.35;overflow-wrap:anywhere}
+.loc-open{display:flex;align-items:center;gap:5px;color:var(--accent-text);font-size:.8rem;font-weight:600;white-space:nowrap}
+.loc-open .i{width:15px;height:15px}
+@media (max-width:560px){.loc-card{left:12px;right:12px;bottom:12px;padding:13px;gap:9px}.loc-open{gap:3px;font-size:.74rem}}
+
+/* Final CTA */
+.final{position:relative;border-radius:clamp(28px,5vw,56px);padding:clamp(40px,8vw,104px) clamp(24px,6vw,80px);overflow:hidden;color:#EAF8F9;background:linear-gradient(135deg,#0B8FA0 0%,#09596A 45%,#052B36 100%);isolation:isolate}
+.final h2{max-width:11ch;color:#fff}
+.final p{color:#CDEBEF;margin-top:20px}
+.final .btn-primary{background:#fff;color:#06303C;margin-top:34px}
+.final .btn-ghost{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+.final-acts{display:flex;flex-wrap:wrap;gap:12px}
+.fring{position:absolute;z-index:-1;right:-12%;top:50%;width:min(70vw,640px);aspect-ratio:1;transform:translateY(-50%);border-radius:50%}
+.fring i{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.22)}
+.fring i:nth-child(1){inset:0}.fring i:nth-child(2){inset:12%}.fring i:nth-child(3){inset:24%}.fring i:nth-child(4){inset:36%;background:conic-gradient(from 0deg,rgba(55,198,208,.5),rgba(255,201,77,.45),rgba(255,255,255,.4),rgba(55,198,208,.5));animation:spin 14s linear infinite;border:0}
+.fring i:nth-child(1){animation:spin 80s linear infinite;border-style:dashed}
+
+footer{padding-block:40px calc(40px + 80px)}
+.foot{display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:space-between;align-items:flex-start;padding-top:32px;border-top:1px solid var(--line)}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 22px}
+.foot nav a{text-decoration:none;color:var(--muted);min-height:44px;display:inline-flex;align-items:center}
+.foot nav a:hover{color:var(--fg)}
+.fine{font-size:.82rem;color:var(--muted);margin-top:24px}
+
+/* Mobile bar + toast */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:none;transform:translateY(0);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.mbar.hide{transform:translateY(120%)}
+.mbar-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:var(--glass-strong)}
+.mbar-in span{font-size:.86rem;line-height:1.25;font-weight:500}
+.mbar-in span b{display:block}
+@media (max-width:759px){
+  .mbar{display:block}
+  .nav-r>a{display:none}
+  .mbar-in{justify-content:flex-end;gap:10px;padding:8px}
+  .mbar-in>span{margin-right:auto}
+  .mbar-in>.mbar-action{width:50px;height:50px;min-height:50px;padding:0;border-radius:50%;gap:0;font-size:0}
+  .mbar-in>.mbar-action .i{width:25px;height:25px}
+  .mbar-in>.mbar-whatsapp{background:#25D366;color:#fff;box-shadow:0 8px 20px -8px rgba(37,211,102,.65)}
+  .mbar-in>.mbar-whatsapp:hover{background:#20BD5A}
+}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,24px);opacity:0;pointer-events:none;z-index:70;padding:12px 20px;border-radius:999px;background:var(--cta-bg);color:var(--cta-fg);font-weight:600;font-size:.92rem;transition:all .35s cubic-bezier(.2,.8,.2,1);max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (min-width:760px){.toast{bottom:32px}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{transform:none}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-iron" viewBox="0 0 24 24"><path d="M3 18h18l-2-6a5 5 0 0 0-5-4h-4l-6 6H5a2 2 0 0 0-2 2z"/><path d="m10 8 2-4h3a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14M5 19c2-4 5-7 9-9"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.7l-5.9 3.1 1.2-6.5L2.5 9.7l6.6-.9z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-translate" viewBox="0 0 24 24"><path d="M4 5h11M9.5 3v2m4.2 0c-.4 4.1-3.7 7.7-7.7 9.4M5 8c1.2 2.8 3.4 5 6.3 6.5M13 21l4.2-10 4.3 10m-7.1-3h5.8"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.52 3.48A11.82 11.82 0 0 0 1.9 17.75L.3 23.6l6-1.57A11.82 11.82 0 0 0 20.52 3.48Zm-9.7 17.03a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.56.93.95-3.47-.23-.36a9.82 9.82 0 1 1 8.19 4.48Zm5.39-7.36c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.51-1.78-1.69-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.08 4.5.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></symbol>
+</svg>
+
+<a class="skip" href="#services">Skip to services</a>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-in glass">
+      <a class="logo" href="#top" aria-label="Neat &amp; Clean Laundry, home"><strong>Neat &amp; Clean</strong><small>Laundry</small></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#top">Home</a>
+        <a href="#services">Services</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+      <div class="nav-r">
+        <div class="lang-toggle" role="group" aria-label="Choose language">
+          <svg class="i" aria-hidden="true"><use href="#i-translate"/></svg><button type="button" data-language="en" aria-pressed="true">English</button><span aria-hidden="true">|</span><button type="button" data-language="ne" aria-pressed="false">नेपाली</button>
+        </div>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
+          <svg class="i theme-ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="i theme-ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+          <svg class="i" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="menu-backdrop" id="menuBackdrop" hidden></div>
+<aside class="mobile-drawer" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
+  <div class="drawer-head">
+    <span class="drawer-label">Neat &amp; Clean Laundry</span>
+    <button class="drawer-close" id="menuClose" type="button" aria-label="Close navigation menu"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <nav class="mobile-links" aria-label="Main">
+    <a href="#top">Home</a>
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+  <div class="drawer-social">
+    <p class="drawer-social-title">Follow us</p>
+    <div class="drawer-social-links" role="group" aria-label="Social media">
+      <a class="drawer-social-link drawer-social-facebook" data-social-url="" data-social-platform="facebook" aria-disabled="true" tabindex="-1" aria-label="Facebook"><svg class="social-icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+      <a class="drawer-social-link drawer-social-instagram" data-social-url="" data-social-platform="instagram" aria-disabled="true" tabindex="-1" aria-label="Instagram"><svg class="social-icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+      <a class="drawer-social-link drawer-social-tiktok" data-social-url="" data-social-platform="tiktok" aria-disabled="true" tabindex="-1" aria-label="TikTok"><svg class="social-icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+    </div>
+  </div>
+  <div class="drawer-foot"><a class="btn btn-primary" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+</aside>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker">Laundry, made effortless</p>
+      <h1 id="h1" class="h-xl">Laundry that comes back folded.</h1>
+      <p class="lede">Easy pickup. Thoughtful care. Fresh-folded laundry back within 24 hours.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost hero-secondary" href="#contact">Contact Us <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="hero-visual" role="img" aria-label="Laundry folded beside a washing machine and laundry basket">
+      <img class="hero-art" src="./1laundry.jpg" alt="">
+      <span class="hero-pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>24-hour turnaround</span>
+      <div class="hero-note glass"><span class="ic-dot"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span><b>Handled with care</b><small>Fresh-folded, right to your door</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-in glass rv">
+      <div class="strip-item"><span class="ic-dot"><svg class="i"><use href="#i-clock"/></svg></span>24-hour turnaround</div>
+      <div class="strip-item"><span class="ic-dot"><svg class="i"><use href="#i-truck"/></svg></span>Convenient pickup &amp; delivery</div>
+      <div class="strip-item"><span class="ic-dot"><svg class="i"><use href="#i-leaf"/></svg></span>Eco-certified detergent</div>
+      <div class="strip-item"><span class="ic-dot"><svg class="i"><use href="#i-shield"/></svg></span>Carefully handled garments</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 id="svc-h" class="h-lg">Laundry care, all in one place</h2>
+      <p class="lede">From everyday loads to delicate pieces, expertly handled and returned fresh.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc rv">
+        <div class="svc-art art-a"><img src="./washandfold.jpg" alt="" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-top"><h3 class="h-md">Wash &amp; Fold</h3></div>
+          <p>Clothes, towels and linens returned fresh and neatly folded.</p>
+          <a class="btn btn-ghost btn-sm svc-contact" href="https://wa.me/9779851066612" data-whatsapp-service="Wash &amp; Fold" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="svc rv">
+        <div class="svc-art art-b"><img src="./dry.jpg" alt="" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-top"><h3 class="h-md">Dry Cleaning</h3></div>
+          <p>Suits and dresses cleaned and returned ready to wear.</p>
+          <a class="btn btn-ghost btn-sm svc-contact" href="https://wa.me/9779851066612" data-whatsapp-service="Dry Cleaning" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="svc rv">
+        <div class="svc-art art-c"><img src="./iron.jpg" alt="" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-top"><h3 class="h-md">Ironing &amp; Pressing</h3></div>
+          <p>Workwear and linens pressed crisp and ready for the wardrobe.</p>
+          <a class="btn btn-ghost btn-sm svc-contact" href="https://wa.me/9779851066612" data-whatsapp-service="Ironing &amp; Pressing" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="svc rv">
+        <div class="svc-art art-d"><img src="./pickupanddelivery.png" alt="" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-top"><h3 class="h-md">Pickup &amp; Delivery</h3></div>
+          <p>Scheduled pickup and doorstep return, on your time.</p>
+          <a class="btn btn-ghost btn-sm svc-contact" href="https://wa.me/9779851066612" data-whatsapp-service="Pickup &amp; Delivery" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="svc rv">
+        <div class="svc-art art-e"><img src="./specilized.jpg" alt="" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-top"><h3 class="h-md">Specialized Garment Care</h3></div>
+          <p>Extra attention for silks, wool, embellishments and delicate fabrics.</p>
+          <a class="btn btn-ghost btn-sm svc-contact" href="https://wa.me/9779851066612" data-whatsapp-service="Specialized Garment Care" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="how" aria-labelledby="how-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 id="how-h" class="h-lg">Fresh laundry in three simple steps</h2>
+    </div>
+    <div class="steps-track" aria-hidden="true"><div class="track" id="track" style="--p:0"><i></i></div></div>
+    <ol class="steps" style="list-style:none;padding:0;margin:0">
+      <li class="step glass rv">
+        <span class="step-n" aria-hidden="true">01</span>
+        <div class="step-art" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></div>
+        <div class="step-copy"><h3>Get in touch</h3><p>Contact our team to discuss the service and collection options you need.</p></div>
+      </li>
+      <li class="step glass rv">
+        <span class="step-n" aria-hidden="true">02</span>
+        <div class="step-art" aria-hidden="true"><svg class="i"><use href="#i-truck"/></svg></div>
+        <div class="step-copy"><h3>We Collect</h3><p>Our team picks up your clothes from your location.</p></div>
+      </li>
+      <li class="step glass rv">
+        <span class="step-n" aria-hidden="true">03</span>
+        <div class="step-art" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></div>
+        <div class="step-copy"><h3>Fresh &amp; Delivered</h3><p>We clean, care for, and deliver them back fresh.</p></div>
+      </li>
+    </ol>
+    <div class="steps-cta"><a class="btn btn-ghost btn-sm" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section id="areas" aria-labelledby="ar-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 id="ar-h" class="h-lg">Fresh laundry, close to home</h2>
+      <p class="lede">Daily pickup and next-day delivery across Kathmandu.</p>
+    </div>
+    <div class="areas">
+      <div class="map rv" id="map">
+        <svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="rvg" x1="0" x2="1"><stop offset="0" stop-color="#37C6D0"/><stop offset="1" stop-color="#0B8FA0"/></linearGradient>
+            <pattern id="blk" width="80" height="70" patternUnits="userSpaceOnUse"><rect x="6" y="6" width="68" height="58" rx="10" fill="currentColor" opacity=".07"/></pattern>
+          </defs>
+          <rect width="1000" height="700" fill="url(#blk)" style="color:var(--fg)"/>
+          <path d="M-20 470C160 430 240 560 420 520S640 330 780 380 930 520 1020 470V560C920 610 800 470 700 470S520 640 380 630 80 540-20 580z" fill="url(#rvg)" opacity=".75"/>
+          <path d="M120 0C180 150 140 260 260 340S480 400 560 560 640 700 640 700" fill="none" stroke="var(--fg)" stroke-opacity=".14" stroke-width="14" stroke-linecap="round"/>
+          <path d="M0 250C200 250 300 190 520 220S800 150 1000 190" fill="none" stroke="var(--fg)" stroke-opacity=".12" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="840" cy="120" r="70" fill="#6CC0A6" opacity=".35"/>
+          <circle cx="190" cy="610" r="56" fill="#6CC0A6" opacity=".3"/>
+        </svg>
+        <div class="map-badge glass"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Kathmandu pickup areas</div>
+        <div id="pins"></div>
+        <div class="legend glass" aria-hidden="true"><span><i style="background:var(--tide)"></i>Pickup</span><span><i style="background:var(--sun)"></i>Drop-off point</span></div>
+      </div>
+      <div class="area-side">
+        <div class="area-panel-head"><h3>Check your area</h3><p>Explore neighbourhoods and nearby drop-off points.</p></div>
+        <div class="finder rv">
+          <label for="areaQ" class="sr">Search your neighbourhood</label>
+          <input id="areaQ" type="search" placeholder="Search neighbourhoods" autocomplete="off">
+          <div class="area-options" id="areaList" role="group" aria-label="Neighbourhoods"></div>
+          <p class="muted" id="areaNone" hidden style="font-size:.92rem">We do not cover that area yet. Try a neighbour from the list above.</p>
+        </div>
+        <div class="area-card glass rv" id="areaCard" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" aria-labelledby="why-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 id="why-h" class="h-lg">Care you can count on</h2><p class="lede">Small details. A better laundry day.</p></div>
+    <div class="bento">
+      <article class="tile featured b1 rv">
+        <div class="benefit-top"><span class="benefit-icon"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></span><span class="benefit-index">01 / CARE</span></div>
+        <div class="benefit-copy"><h3>Professional garment care</h3><p>Thoughtful handling for everyday fabrics and delicate pieces.</p></div>
+      </article>
+      <article class="tile b2 rv">
+        <div class="benefit-top"><span class="benefit-icon"><svg class="i" aria-hidden="true"><use href="#i-truck"/></svg></span><span class="benefit-index">02</span></div>
+        <div class="benefit-copy"><h3>Reliable pickup &amp; delivery</h3><p>On time, from your door and back.</p></div>
+      </article>
+      <article class="tile b3 rv">
+        <div class="benefit-top"><span class="benefit-stat">24h</span><span class="benefit-index">03</span></div>
+        <div class="benefit-copy"><h3>Fast turnaround</h3><p>Most orders are fresh and folded the next day.</p></div>
+      </article>
+      <article class="tile b4 rv" id="ringTile">
+        <div class="benefit-top"><span class="quality-ring"><svg class="ringc" viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50" transform="rotate(-90 60 60)"/></svg><span class="ring-center"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></span><span class="benefit-index">04</span></div>
+        <div class="benefit-copy"><h3>Quality-focused cleaning</h3><p>Every load is handled with care and checked before return.</p></div>
+      </article>
+      <article class="tile b5 rv">
+        <div class="benefit-top"><span class="benefit-icon"><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg></span><span class="benefit-index">05</span></div>
+        <div class="benefit-copy"><h3>Personal, local service</h3><p>Our team will help you find the right care and answer questions for your needs.</p></div>
+      </article>
+    </div>
+    <div class="why-cta"><a class="btn btn-primary" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" aria-labelledby="rev-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="rev-top rv">
+      <div style="display:grid;gap:14px">
+        <h2 id="rev-h" class="h-lg">Folded, as promised</h2>
+        <div class="score"><b>4.9</b><div><div class="stars" role="img" aria-label="4.9 out of 5 stars"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></div><span class="score-note">Trusted by local customers</span></div></div>
+      </div>
+      <div class="rev-ctl">
+        <button class="icon-btn" type="button" id="rPrev" aria-label="Previous reviews"><svg class="i" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <button class="icon-btn" type="button" id="rNext" aria-label="Next reviews"><svg class="i" aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-left"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rail" id="rail" tabindex="0" aria-label="Customer reviews">
+      <figure class="rev glass" style="margin:0"><blockquote>I stopped thinking about laundry. It comes back folded and feels fresh.</blockquote><figcaption class="who"><span class="av" style="background:#7EE0E6">AM</span><span><b>Amara M.</b><small>Naya Bazaar, regular pickup</small></span></figcaption></figure>
+      <figure class="rev glass" style="margin:0"><blockquote>A quick message while I was stuck in a meeting was all it took to arrange collection.</blockquote><figcaption class="who"><span class="av" style="background:#FFD36B">JR</span><span><b>Jonas R.</b><small>Thamel, wash &amp; iron</small></span></figcaption></figure>
+      <figure class="rev glass" style="margin:0"><blockquote>They got a red wine stain out of my linen suit that two other cleaners gave up on.</blockquote><figcaption class="who"><span class="av" style="background:#9FD6C3">SK</span><span><b>Sana K.</b><small>Basantapur, dry cleaning</small></span></figcaption></figure>
+      <figure class="rev glass" style="margin:0"><blockquote>Two kids, one dog, one very large duvet. Handled all of it without a fuss.</blockquote><figcaption class="who"><span class="av" style="background:#BFEEF1">LT</span><span><b>Liam T.</b><small>Lazimpat, bedding care</small></span></figcaption></figure>
+      <figure class="rev glass" style="margin:0"><blockquote>The driver arrived when expected every time, and the laundry came back beautifully folded.</blockquote><figcaption class="who"><span class="av" style="background:#FFE29B">PN</span><span><b>Priya N.</b><small>Sorhakhutte, wash &amp; fold</small></span></figcaption></figure>
+      <figure class="rev glass" style="margin:0"><blockquote>Drop-off at the Balaju point is quick and easy. I can get on with my day.</blockquote><figcaption class="who"><span class="av" style="background:#7EE0E6">DO</span><span><b>Dara O.</b><small>Balaju, drop-off</small></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social" aria-labelledby="social-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 id="social-h" class="h-lg">Keep in touch</h2>
+      <p class="lede">Follow along for laundry care tips, updates, and a closer look at life in Kathmandu.</p>
+    </div>
+    <div class="social-grid">
+      <a class="social-card glass" data-social-url="" aria-disabled="true" tabindex="-1" aria-label="Facebook">
+        <span class="social-icon-wrap social-facebook"><svg class="social-icon" aria-hidden="true"><use href="#i-facebook"/></svg></span>
+        <span class="social-name">Facebook</span>
+      </a>
+      <a class="social-card glass" data-social-url="" aria-disabled="true" tabindex="-1" aria-label="Instagram">
+        <span class="social-icon-wrap social-instagram"><svg class="social-icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+        <span class="social-name">Instagram</span>
+      </a>
+      <a class="social-card glass" data-social-url="" aria-disabled="true" tabindex="-1" aria-label="TikTok">
+        <span class="social-icon-wrap social-tiktok"><svg class="social-icon" aria-hidden="true"><use href="#i-tiktok"/></svg></span>
+        <span class="social-name">TikTok</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-h" style="padding-block-start:0">
+  <div class="wrap faq-grid">
+    <div class="rv" style="display:grid;gap:16px;align-content:start">
+      <h2 id="faq-h" class="h-lg">Good questions</h2>
+      <p class="lede">Still unsure? Call or message us any day.</p>
+      <a class="btn btn-ghost" href="#contact" style="justify-self:start">Contact Us</a>
+    </div>
+    <div class="faq" id="faq-list">
+      <div class="qa rv"><h3><button class="q" type="button" aria-expanded="false" aria-controls="a1" id="q1">How fast will I get my clothes back?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></button></h3><div class="a" id="a1" role="region" aria-labelledby="q1"><div><p>Standard orders come back the next day. Express orders collected before noon come back the same evening. Dry cleaning takes two days.</p></div></div></div>
+      <div class="qa rv"><h3><button class="q" type="button" aria-expanded="false" aria-controls="a2" id="q2">What if something is damaged or lost?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></button></h3><div class="a" id="a2" role="region" aria-labelledby="q2"><div><p>Every item is carefully tagged at pickup. Contact our team and we will work with you to make things right.</p></div></div></div>
+      <div class="qa rv"><h3><button class="q" type="button" aria-expanded="false" aria-controls="a3" id="q3">How can I learn more about your services?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></button></h3><div class="a" id="a3" role="region" aria-labelledby="q3"><div><p>Message us on WhatsApp and our team will help you choose the right service and answer your questions.</p><a class="link" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></div></div></div>
+      <div class="qa rv"><h3><button class="q" type="button" aria-expanded="false" aria-controls="a4" id="q4">Can I request fragrance-free detergent?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></button></h3><div class="a" id="a4" role="region" aria-labelledby="q4"><div><p>Contact our team to discuss fragrance-free detergent, your own detergent, or skipping fabric softener.</p></div></div></div>
+      <div class="qa rv"><h3><button class="q" type="button" aria-expanded="false" aria-controls="a5" id="q5">Do I need to be home for collection?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></button></h3><div class="a" id="a5" role="region" aria-labelledby="q5"><div><p>Contact us to discuss collection arrangements that work for your location.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="ct-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 id="ct-h" class="h-lg">Say hello</h2></div>
+    <div class="contact">
+      <div class="c-list rv">
+        <div class="c-item glass"><span class="ic-dot"><svg class="i"><use href="#i-phone"/></svg></span><div><small>Call or text</small><a class="contact-number" href="tel:+9779851066612"><b>9851066612</b></a></div><button class="cp" type="button" data-copy="9851066612"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>Copy</button></div>
+        <div class="c-item glass"><span class="ic-dot"><svg class="i"><use href="#i-mail"/></svg></span><div><small>Email</small><a href="mailto:hello@tidal.example"><b>hello@tidal.example</b></a></div><button class="cp" type="button" data-copy="hello@tidal.example"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>Copy</button></div>
+        <a class="btn btn-primary" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <dl class="hours glass">
+          <dt>Monday to Friday</dt><dd>7:00 am to 9:00 pm</dd>
+          <dt>Saturday</dt><dd>8:00 am to 8:00 pm</dd>
+          <dt>Sunday</dt><dd>9:00 am to 6:00 pm</dd>
+        </dl>
+      </div>
+      <div class="loc rv">
+        <iframe src="https://maps.google.com/maps?q=27.7205066%2C85.3088645&amp;z=17&amp;output=embed" title="Map showing Neat &amp; Clean Laundry in Kathmandu" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a class="loc-card glass" href="https://maps.app.goo.gl/Wdp4DecRxoYM1jBP6" target="_blank" rel="noopener noreferrer" aria-label="Open Neat &amp; Clean Laundry in Google Maps"><span class="ic-dot"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span><span class="loc-card-copy"><b>Neat &amp; Clean Laundry</b><span>P8C5+6G5, Naya Bazaar Marg, Kathmandu, Bagmati Province 44600, Nepal</span></span><span class="loc-open">Open map <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section aria-labelledby="fin-h" style="padding-block-start:0">
+  <div class="wrap">
+    <div class="final rv">
+      <div class="fring" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <h2 id="fin-h" class="h-xl" style="font-size:clamp(2.6rem,7vw,5.6rem)">Take laundry off your list.</h2>
+      <p class="lede">Thoughtful laundry care, collected and delivered across Kathmandu.</p>
+      <div class="final-acts">
+        <a class="btn btn-primary" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp <svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#contact" style="margin-top:34px">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="logo" href="#top" aria-label="Neat &amp; Clean Laundry, home"><strong>Neat &amp; Clean</strong><small>Laundry</small></a><p class="muted" style="margin-top:10px;font-size:.92rem">Laundry and dry cleaning, collected and delivered.</p></div>
+      <nav aria-label="Footer"><a href="#services">Services</a><a href="#areas">Areas</a><a href="#faq">FAQ</a><a href="#contact">Contact Us</a><a class="btn btn-primary btn-sm" href="https://wa.me/9779851066612" data-whatsapp target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></nav>
+    </div>
+    <p class="fine">Personalized laundry care, with convenient pickup and delivery.</p>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar"><div class="mbar-in glass"><span><b>Need laundry care?</b>Talk with our local team</span><a class="btn btn-primary btn-sm mbar-action mbar-call" href="tel:+9779851066612" aria-label="Call Neat &amp; Clean Laundry"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="btn btn-primary btn-sm mbar-action mbar-whatsapp" href="https://wa.me/9779851066612" data-whatsapp aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function icon(id){return '<svg class="i" aria-hidden="true"><use href="#i-'+id+'"/></svg>'}
+function whatsappHref(message){return 'https://wa.me/9779851066612?text='+encodeURIComponent(message)}
+var currentLanguage='en';
+var nepaliText={
+  '.skip':['सेवाहरूमा जानुहोस्'],
+  '.nav-links a':['गृहपृष्ठ','सेवाहरू','काम गर्ने तरिका','सोधिने प्रश्न','सम्पर्क'],
+  '.mobile-links a':['गृहपृष्ठ','सेवाहरू','काम गर्ने तरिका','सोधिने प्रश्न','सम्पर्क'],
+  '.logo small':['लन्ड्री'],
+  '.nav-r>.btn':['ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '.drawer-label':['नीट एन्ड क्लिन लन्ड्री'],
+  '.drawer-social-title':['हामीलाई फलो गर्नुहोस्'],
+  '.drawer-foot .btn':['ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '.hero-kicker':['लन्ड्री सेवा, अब सजिलो'],
+  '#h1':['धोएर, मिलाएर तपाईंको घरसम्म'],
+  '.hero-copy>.lede':['सजिलो पिकअप, विशेष हेरचाह र २४ घण्टाभित्र सफा, मिलाएर राखिएका कपडा।'],
+  '.hero-actions a':['ह्वाट्सएपमा कुरा गर्नुहोस्','सम्पर्क गर्नुहोस्'],
+  '.hero-pill':['२४ घण्टाभित्र सेवा'],
+  '.hero-note b':['सावधानीपूर्वक हेरचाह'],
+  '.hero-note small':['ताजा र सफासँग मिलाएर, तपाईंको ढोकासम्म'],
+  '.strip-item':['२४ घण्टाभित्र सेवा','सजिलो पिकअप र डेलिभरी','वातावरणमैत्री प्रमाणित डिटर्जेन्ट','कपडाको विशेष हेरचाह'],
+  '#svc-h':['सबै लन्ड्री सेवा, एउटै ठाउँमा'],
+  '#services .sec-head .lede':['दैनिक कपडादेखि नाजुक पहिरनसम्म—विशेष हेरचाहसहित सफा गरेर ताजा अवस्थामा फिर्ता।'],
+  '.svc h3':['धुने र मिलाउने','ड्राइ क्लिनिङ','इस्त्री तथा प्रेस','पिकअप र डेलिभरी','विशेष कपडा हेरचाह'],
+  '.svc-body>p':['कपडा, तौलिया र ओछ्यानका कपडा सफा र मिलाएर फिर्ता।','सुट र पहिरन सफा गरेर लगाउन तयार अवस्थामा फिर्ता।','कामका कपडा र ओछ्यानका कपडा चिटिक्क पारेर इस्त्री।','तपाईंको समयअनुसार पिकअप र घरदैलोमा डेलिभरी।','रेशम, ऊन, सजावट भएका र नाजुक कपडामा विशेष ध्यान।'],
+  '.svc-contact':['ह्वाट्सएपमा कुरा गर्नुहोस्','ह्वाट्सएपमा कुरा गर्नुहोस्','ह्वाट्सएपमा कुरा गर्नुहोस्','ह्वाट्सएपमा कुरा गर्नुहोस्','ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '#how-h':['तीन सजिला चरणमा ताजा लन्ड्री'],
+  '.step-copy h3':['सम्पर्क गर्नुहोस्','हामी पिकअप गर्छौँ','सफा गरेर घरमै पुर्‍याउँछौँ'],
+  '.step-copy p':['आवश्यक सेवा र पिकअपका विकल्पबारे हाम्रो टोलीसँग कुरा गर्नुहोस्।','हाम्रो टोलीले तपाईंको ठाउँबाट कपडा संकलन गर्छ।','हामी कपडा सफा गरी हेरचाहसाथ ताजा अवस्थामा फिर्ता पुर्‍याउँछौँ।'],
+  '.steps-cta':['ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '#ar-h':['घरनजिकै ताजा लन्ड्री सेवा'],
+  '#areas .sec-head .lede':['काठमाडौंभरि दैनिक पिकअप र अर्को दिन डेलिभरी।'],
+  '.map-badge':['काठमाडौंका पिकअप क्षेत्रहरू'],
+  '.legend span':['पिकअप','ड्रप-अफ केन्द्र'],
+  '.area-panel-head h3':['आफ्नो क्षेत्र जाँच्नुहोस्'],
+  '.area-panel-head p':['सेवा क्षेत्र र नजिकका ड्रप-अफ केन्द्रहरू हेर्नुहोस्।'],
+  '.finder label':['आफ्नो टोल खोज्नुहोस्'],
+  '#areaNone':['अहिले यो क्षेत्रमा सेवा उपलब्ध छैन। माथिको सूचीबाट नजिकको अर्को टोल छान्नुहोस्।'],
+  '#why-h':['भरपर्दो हेरचाह'],
+  '#why .sec-head .lede':['सानो कुरामा ध्यान, लन्ड्रीको दिन अझ राम्रो।'],
+  '.benefit-copy h3':['व्यावसायिक कपडा हेरचाह','भरपर्दो पिकअप र डेलिभरी','छिटो सेवा','गुणस्तरीय सफाइ','व्यक्तिगत र स्थानीय सेवा'],
+  '.benefit-copy p':['दैनिक र नाजुक दुवै प्रकारका कपडाको ध्यानपूर्वक हेरचाह।','समयमै तपाईंको ढोकाबाट संकलन र फिर्ता डेलिभरी।','धेरैजसो लुगा अर्को दिनमै ताजा र मिलाएर फिर्ता।','हरेक कपडालाई ध्यानपूर्वक सफा गरी फिर्ता गर्नुअघि जाँच।','तपाईंको आवश्यकताअनुसार उपयुक्त हेरचाह छान्न र प्रश्नको जवाफ दिन हाम्रो टोली तयार छ।'],
+  '.benefit-index':['०१ / हेरचाह','०२','०३','०४','०५'],
+  '.why-cta a':['ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '#rev-h':['प्रतिज्ञाअनुसार मिलाएर फिर्ता'],
+  '.score-note':['स्थानीय ग्राहकहरूको विश्वास'],
+  '.rev blockquote':['अब लन्ड्रीको चिन्ता गर्नु पर्दैन। कपडा सफा, ताजा र मिलाएर फिर्ता आउँछन्।','बैठकमा व्यस्त हुँदा एउटा सन्देश पठाएँ, पिकअपको व्यवस्था सजिलै भयो।','दुईवटा ड्राइ क्लिनरले नसकेको मेरो लिनेन सुटको रातो वाइनको दाग यहाँ हटाइयो।','दुई बच्चा, एउटा कुकुर र ठूलो सिरक—सबै काम सहजै गरिदिए।','ड्राइभर सधैँ भनेकै समयमा आउनुभयो, कपडा पनि सुन्दर ढङ्गले मिलाएर फिर्ता आयो।','बालाजुको ड्रप-अफ केन्द्रमा कपडा छोड्न छिटो र सजिलो छ। बाँकी काममा ध्यान दिन पाइन्छ।'],
+  '.who small':['नयाँ बजार, नियमित पिकअप','ठमेल, धुने र इस्त्री','बसन्तपुर, ड्राइ क्लिनिङ','लाजिम्पाट, ओछ्यानका कपडा','सोह्रखुट्टे, धुने र मिलाउने','बालाजु, ड्रप-अफ'],
+  '#social-h':['हामीसँग जोडिनुहोस्'],
+  '#social .sec-head .lede':['लन्ड्री हेरचाहका सुझाव, नयाँ जानकारी र काठमाडौंको हाम्रो दैनिक कामका झलकका लागि फलो गर्नुहोस्।'],
+  '#faq-h':['तपाईंका जिज्ञासा'],
+  '#faq .rv>.lede':['थप जानकारी चाहियो? जुनसुकै दिन फोन वा सन्देश गर्नुहोस्।'],
+  '#faq .rv>.btn':['सम्पर्क गर्नुहोस्'],
+  '.q':['कपडा कति छिटो फिर्ता पाउँछु?','कपडा हराए वा बिग्रिएमा के हुन्छ?','सेवाबारे थप जानकारी कसरी पाउने?','सुगन्धरहित डिटर्जेन्ट अनुरोध गर्न मिल्छ?','कपडा लिन आउँदा म घरमै हुनुपर्छ?'],
+  '.a>div>p':['सामान्य अर्डर अर्को दिन फिर्ता आउँछ। दिउँसोअघि संकलन गरिएको छिटो सेवाको कपडा सोही साँझ फिर्ता आउँछ। ड्राइ क्लिनिङमा दुई दिन लाग्छ।','पिकअप गर्दा हरेक कपडामा ट्याग लगाइन्छ। केही समस्या भए हाम्रो टोलीलाई सम्पर्क गर्नुहोस्—हामी समाधानका लागि साथ दिन्छौँ।','ह्वाट्सएपमा सन्देश पठाउनुहोस्। उपयुक्त सेवा छान्न र तपाईंका प्रश्नको जवाफ दिन हाम्रो टोलीले सहयोग गर्नेछ।','सुगन्धरहित डिटर्जेन्ट, आफ्नै डिटर्जेन्ट प्रयोग गर्ने वा फ्याब्रिक सफ्टनर नहाल्नेबारे हाम्रो टोलीसँग कुरा गर्नुहोस्।','तपाईंलाई उपयुक्त हुने पिकअप व्यवस्थाबारे हामीसँग कुरा गर्नुहोस्।'],
+  '#a3 .link':['ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '#ct-h':['हामीलाई सम्पर्क गर्नुहोस्'],
+  '.c-item small':['फोन वा सन्देश','इमेल'],
+  '.cp':['प्रतिलिपि','प्रतिलिपि'],
+  '.hours dt':['सोमबारदेखि शुक्रबार','शनिबार','आइतबार'],
+  '.hours dd':['बिहान ७ देखि राति ९ बजेसम्म','बिहान ८ देखि राति ८ बजेसम्म','बिहान ९ देखि साँझ ६ बजेसम्म'],
+  '.loc-card-copy span':['P8C5+6G5, नयाँ बजार मार्ग, काठमाडौं, बागमती प्रदेश ४४६००, नेपाल'],
+  '#fin-h':['लन्ड्रीको चिन्ता अब छोड्नुहोस्।'],
+  '.final>.lede':['काठमाडौंभरि पिकअप र डेलिभरीसहित, विशेष हेरचाहमा सफा गरिएका कपडा।'],
+  '.final-acts a':['ह्वाट्सएपमा कुरा गर्नुहोस्','सम्पर्क गर्नुहोस्'],
+  '.foot>div>p':['लन्ड्री र ड्राइ क्लिनिङ—पिकअप र डेलिभरीसहित।'],
+  '.foot nav a':['सेवाहरू','सेवा क्षेत्र','सोधिने प्रश्न','सम्पर्क','ह्वाट्सएपमा कुरा गर्नुहोस्'],
+  '.fine':['व्यक्तिगत हेरचाहसहितको लन्ड्री सेवा—सजिलो पिकअप र डेलिभरी।'],
+  '.mbar-in>span b':['लन्ड्री सेवा चाहियो?'],
+  '.mbar-in>span':['हाम्रो स्थानीय टोलीसँग कुरा गर्नुहोस्'],
+  '.mbar-call':['फोन गर्नुहोस्'],
+  '#mbar .mbar-whatsapp':['ह्वाट्सएप'],
+  '.loc-open':['नक्सा खोल्नुहोस्']
+};
+var nepaliAttrs={
+  '#areaQ':{placeholder:'आफ्नो टोल खोज्नुहोस्'},
+  '#areaList':{'aria-label':'सेवा क्षेत्रका टोलहरू'},
+  '#rail':{'aria-label':'ग्राहकका प्रतिक्रिया'},
+  '.nav-links':{'aria-label':'मुख्य नेभिगेसन'},
+  '.mobile-links':{'aria-label':'मुख्य नेभिगेसन'},
+  '#mobileMenu':{'aria-label':'वेबसाइट नेभिगेसन'},
+  '.drawer-social-links':{'aria-label':'सामाजिक सञ्जाल'},
+  '[data-social-platform="facebook"]':{'aria-label':'फेसबुक'},
+  '[data-social-platform="instagram"]':{'aria-label':'इन्स्टाग्राम'},
+  '[data-social-platform="tiktok"]':{'aria-label':'टिकटक'},
+  '#themeBtn':{'aria-label':'रङको थिम बदल्नुहोस्'},
+  '#menuToggle':{'aria-label':'नेभिगेसन मेनु खोल्नुहोस्'},
+  '#menuClose':{'aria-label':'नेभिगेसन मेनु बन्द गर्नुहोस्'},
+  '#rPrev':{'aria-label':'अघिल्ला प्रतिक्रिया'},
+  '#rNext':{'aria-label':'पछिल्ला प्रतिक्रिया'},
+  '.logo':{'aria-label':'नीट एन्ड क्लिन लन्ड्री, गृहपृष्ठ'},
+  '.stars':{'aria-label':'५ मध्ये ४.९ तारा'},
+  '.mbar-call':{'aria-label':'नीट एन्ड क्लिन लन्ड्रीमा फोन गर्नुहोस्'},
+  '.mbar-whatsapp':{'aria-label':'ह्वाट्सएपमा कुरा गर्नुहोस्'},
+  '.loc iframe':{title:'काठमाडौंमा नीट एन्ड क्लिन लन्ड्री देखाउने नक्सा'},
+  '.loc-card':{'aria-label':'गुगल नक्सामा नीट एन्ड क्लिन लन्ड्री खोल्नुहोस्'},
+  '.hero-visual':{'aria-label':'वाशिङ मेसिन र लन्ड्री टोकरीछेउमा मिलाएर राखिएका कपडा'}
+};
+var originalText=new WeakMap(),originalAttrs=new WeakMap();
+function setDirectText(el,value){
+  var nodes=Array.prototype.filter.call(el.childNodes,function(n){return n.nodeType===3});
+  if(!originalText.has(el))originalText.set(el,nodes.map(function(n){return n.nodeValue}));
+  if(nodes.length){nodes[0].nodeValue=value;for(var i=1;i<nodes.length;i++)nodes[i].nodeValue=''}
+  else el.insertBefore(document.createTextNode(value),el.firstChild);
+}
+function setLocalizedAttr(el,name,value){
+  var saved=originalAttrs.get(el)||{};
+  if(!(name in saved)){saved[name]=el.getAttribute(name);originalAttrs.set(el,saved)}
+  if(value===null)el.removeAttribute(name);else el.setAttribute(name,value);
+}
+function restoreText(el){
+  var saved=originalText.get(el);
+  if(!saved)return;
+  var nodes=Array.prototype.filter.call(el.childNodes,function(n){return n.nodeType===3});
+  if(nodes.length){nodes[0].nodeValue=saved[0]||'';for(var i=1;i<nodes.length;i++)nodes[i].nodeValue=saved[i]||''}
+}
+function setLanguage(language){
+  currentLanguage=language==='ne'?'ne':'en';
+  document.documentElement.lang=currentLanguage;
+  document.title=currentLanguage==='ne'?'नीट एन्ड क्लिन लन्ड्री':'Neat & Clean Laundry';
+  Object.keys(nepaliText).forEach(function(selector){
+    var els=$$(selector),values=nepaliText[selector];
+    els.forEach(function(el,index){
+      if(currentLanguage==='ne')setDirectText(el,values[index]===undefined?values[0]:values[index]);
+      else restoreText(el);
+    });
+  });
+  Object.keys(nepaliAttrs).forEach(function(selector){
+    $$(selector).forEach(function(el){
+      Object.keys(nepaliAttrs[selector]).forEach(function(name){
+        var saved=originalAttrs.get(el)||{};
+        if(currentLanguage==='ne')setLocalizedAttr(el,name,nepaliAttrs[selector][name]);
+        else if(name in saved)setLocalizedAttr(el,name,saved[name]);
+      });
+    });
+  });
+  setLocalizedAttr($('.lang-toggle'),'aria-label',currentLanguage==='ne'?'भाषा छान्नुहोस्':'Choose language');
+  $$('[data-language]').forEach(function(button){
+    button.setAttribute('aria-pressed',String(button.getAttribute('data-language')===currentLanguage));
+  });
+  try{localStorage.setItem('neat-clean-language',currentLanguage)}catch(e){}
+  renderPins();renderAreaCard();renderAreaList($('#areaQ').value);
+  $$('[data-whatsapp]').forEach(function(a){
+    a.href=whatsappHref(currentLanguage==='ne'?'नमस्ते नीट एन्ड क्लिन लन्ड्री, मलाई तपाईंहरूको लन्ड्री सेवा र शुल्कबारे जानकारी चाहिएको छ।':"Hi Neat & Clean Laundry, I'd like to know more about your laundry services and pricing.");
+  });
+  $$('[data-whatsapp-service]').forEach(function(a){
+    var service=a.getAttribute('data-whatsapp-service');
+    var name=currentLanguage==='ne'?serviceName(service):service;
+    a.href=whatsappHref(currentLanguage==='ne'?'नमस्ते नीट एन्ड क्लिन लन्ड्री, मलाई '+name+' सेवाबारे जानकारी चाहिएको छ।':"Hi Neat & Clean Laundry, I'd like to know more about your "+service+" service and pricing.");
+  });
+}
+function serviceName(service){
+  var names={'Wash & Fold':'धुने र मिलाउने','Dry Cleaning':'ड्राइ क्लिनिङ','Ironing & Pressing':'इस्त्री तथा प्रेस','Pickup & Delivery':'पिकअप र डेलिभरी','Specialized Garment Care':'विशेष कपडा हेरचाह'};
+  return names[service]||service;
+}
+var savedLanguage='en';
+try{savedLanguage=localStorage.getItem('neat-clean-language')||'en'}catch(e){}
+$$('[data-language]').forEach(function(button){button.addEventListener('click',function(){setLanguage(button.getAttribute('data-language'))})});
+$$('[data-social-url]').forEach(function(a){
+  var url=a.getAttribute('data-social-url').trim();
+  if(!url)return;
+  a.href=url;
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.removeAttribute('aria-disabled');
+  a.removeAttribute('tabindex');
+});
+$$('[data-whatsapp]').forEach(function(a){
+  a.href=whatsappHref("Hi Neat & Clean Laundry, I'd like to know more about your laundry services and pricing.");
+});
+$$('[data-whatsapp-service]').forEach(function(a){
+  var service=a.getAttribute('data-whatsapp-service');
+  a.href=whatsappHref("Hi Neat & Clean Laundry, I'd like to know more about your "+service+" service and pricing.");
+});
+var toastT;
+function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show')},2400)}
+function copyText(t,okMsg){
+  function fallback(){
+    var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;opacity:0;top:0';document.body.appendChild(ta);ta.select();
+    var ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);
+    toast(ok?okMsg:(currentLanguage==='ne'?'प्रतिलिपि गर्न Ctrl वा Cmd+C थिच्नुहोस्':'Press Ctrl or Cmd+C to copy'));
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast(okMsg)},fallback)}else fallback();
+}
+
+/* Theme */
+(function(){
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('tidal-theme');if(saved==='dark'||saved==='light')root.setAttribute('data-theme',saved)}catch(e){}
+  $('#themeBtn').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var isDark=cur==='dark';
+    var next=isDark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('tidal-theme',next)}catch(e){}
+  });
+})();
+
+/* Responsive navigation */
+(function(){
+  var header=$('.nav'),toggle=$('#menuToggle'),drawer=$('#mobileMenu'),backdrop=$('#menuBackdrop'),close=$('#menuClose');
+  var closeTimer=0,returnFocus=true;
+  function closeMenu(restore){
+    if(drawer.hidden)return;
+    returnFocus=restore!==false;
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label',currentLanguage==='ne'?'नेभिगेसन मेनु खोल्नुहोस्':'Open navigation menu');
+    document.body.classList.remove('menu-open');
+    drawer.classList.remove('is-open');backdrop.classList.remove('is-open');
+    window.clearTimeout(closeTimer);
+    closeTimer=window.setTimeout(function(){
+      if(toggle.getAttribute('aria-expanded')==='false'){
+        drawer.hidden=true;backdrop.hidden=true;
+        if(returnFocus)toggle.focus();
+      }
+    },380);
+  }
+  function openMenu(){
+    window.clearTimeout(closeTimer);
+    drawer.hidden=false;backdrop.hidden=false;
+    toggle.setAttribute('aria-expanded','true');
+    toggle.setAttribute('aria-label',currentLanguage==='ne'?'नेभिगेसन मेनु बन्द गर्नुहोस्':'Close navigation menu');
+    document.body.classList.add('menu-open');
+    requestAnimationFrame(function(){drawer.classList.add('is-open');backdrop.classList.add('is-open')});
+    close.focus();
+  }
+  toggle.addEventListener('click',function(){if(toggle.getAttribute('aria-expanded')==='true')closeMenu();else openMenu()});
+  close.addEventListener('click',function(){closeMenu()});
+  backdrop.addEventListener('click',function(){closeMenu()});
+  $$('.mobile-links a,.drawer-foot a').forEach(function(a){a.addEventListener('click',function(){closeMenu(false)})});
+  document.addEventListener('keydown',function(e){
+    if(drawer.hidden)return;
+    if(e.key==='Escape'){e.preventDefault();closeMenu();return}
+    if(e.key==='Tab'){
+      var focusable=$$('a[href],button:not([disabled])',drawer),first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
+  window.addEventListener('resize',function(){if(window.innerWidth>=1100)closeMenu(false)});
+  var navTick=false;
+  function updateNav(){header.classList.toggle('is-scrolled',window.scrollY>12);navTick=false}
+  window.addEventListener('scroll',function(){if(!navTick){navTick=true;requestAnimationFrame(updateNav)}},{passive:true});
+  updateNav();
+})();
+
+/* Service areas */
+var AREAS=[
+  {id:'naya-bazaar',name:'Naya Bazaar',x:22,y:56,hub:false},
+  {id:'thamel',name:'Thamel',x:48,y:56,hub:true},
+  {id:'lazimpat',name:'Lazimpat',x:78,y:28,hub:true},
+  {id:'basantapur',name:'Basantapur',x:80,y:46,hub:true},
+  {id:'paknajol',name:'Paknajol',x:34,y:62,hub:false},
+  {id:'balaju',name:'Balaju',x:12,y:66,hub:true},
+  {id:'sorhakhutte',name:'Sorhakhutte',x:56,y:78,hub:false},
+  {id:'swayambhu',name:'Swayambhu',x:88,y:78,hub:false}
+];
+var AREA_NAMES_NE={
+  'naya-bazaar':'नयाँ बजार',
+  'thamel':'ठमेल',
+  'lazimpat':'लाजिम्पाट',
+  'basantapur':'बसन्तपुर',
+  'paknajol':'पकनाजोल',
+  'balaju':'बालाजु',
+  'sorhakhutte':'सोह्रखुट्टे',
+  'swayambhu':'स्वयम्भू'
+};
+function areaName(a){return currentLanguage==='ne'?AREA_NAMES_NE[a.id]:a.name}
+function areaById(id){for(var i=0;i<AREAS.length;i++)if(AREAS[i].id===id)return AREAS[i];return null}
+var selArea='naya-bazaar';
+function renderPins(){
+  $('#pins').innerHTML=AREAS.map(function(a){
+    var name=areaName(a),drop=currentLanguage==='ne'?', ड्रप-अफ केन्द्र उपलब्ध':', drop-off point available';
+    return '<button type="button" class="pin'+(a.hub?' hub':'')+'" style="left:'+a.x+'%;top:'+a.y+'%" data-area="'+a.id+'" aria-pressed="'+(a.id===selArea)+'" aria-label="'+esc(name)+(a.hub?drop:'')+'"><span class="pin-d"></span><span class="pin-l">'+esc(name)+'</span></button>';
+  }).join('');
+}
+function renderAreaCard(){
+  var a=areaById(selArea);
+  var name=areaName(a);
+  var message=currentLanguage==='ne'?'नमस्ते नीट एन्ड क्लिन लन्ड्री, मलाई '+name+' क्षेत्रमा तपाईंहरूको लन्ड्री सेवा र शुल्कबारे जानकारी चाहिएको छ।':"Hi Neat & Clean Laundry, I'd like to know more about your laundry services and pricing in "+a.name+".";
+  var status=currentLanguage==='ne'?'सेवा उपलब्ध क्षेत्र':'Service area';
+  var pickup=currentLanguage==='ne'?'पिकअप र डेलिभरी':'Pickup & delivery';
+  var drop=currentLanguage==='ne'?'नजिकै ड्रप-अफ केन्द्र':'Drop-off point nearby';
+  var local=currentLanguage==='ne'?'स्थानीय सेवा':'Local service';
+  var city=currentLanguage==='ne'?'काठमाडौं':'Kathmandu';
+  var cta=currentLanguage==='ne'?'ह्वाट्सएपमा कुरा गर्नुहोस्':'Chat on WhatsApp';
+  $('#areaCard').innerHTML='<div class="area-card-top"><span class="area-status"><i aria-hidden="true"></i>'+status+'</span></div><h3>'+esc(name)+'</h3><div class="area-meta"><span class="tag">'+pickup+'</span>'+(a.hub?'<span class="tag sun">'+drop+'</span>':'')+'</div><div class="area-window"><span>'+local+'</span><b>'+city+'</b></div><a class="btn btn-primary btn-sm" href="'+whatsappHref(message)+'" target="_blank" rel="noopener noreferrer">'+cta+' '+icon('arrow').replace('class="i"','class="i go"')+'</a>';
+}
+function renderAreaList(q){
+  q=(q||'').trim().toLowerCase();
+  var list=AREAS.filter(function(a){return !q||a.name.toLowerCase().indexOf(q)>-1||AREA_NAMES_NE[a.id].toLowerCase().indexOf(q)>-1});
+  $('#areaList').innerHTML=list.map(function(a){return '<button type="button" class="area-option" data-area="'+a.id+'" aria-pressed="'+(a.id===selArea)+'">'+esc(areaName(a))+'</button>'}).join('');
+  $('#areaNone').hidden=list.length>0;
+}
+function pickArea(id){selArea=id;renderPins();renderAreaCard();renderAreaList($('#areaQ').value)}
+$('#pins').addEventListener('click',function(e){var b=e.target.closest('[data-area]');if(b){$('#areaQ').value='';pickArea(b.getAttribute('data-area'))}});
+$('#areaList').addEventListener('click',function(e){var b=e.target.closest('[data-area]');if(b)pickArea(b.getAttribute('data-area'))});
+$('#areaQ').addEventListener('input',function(e){
+  renderAreaList(e.target.value);
+  var q=e.target.value.trim().toLowerCase();
+  if(q){var m=AREAS.filter(function(a){return a.name.toLowerCase().indexOf(q)>-1||AREA_NAMES_NE[a.id].toLowerCase().indexOf(q)>-1});if(m.length&&m[0].id!==selArea){selArea=m[0].id;renderPins();renderAreaCard()}}
+});
+/* FAQ */
+$$('.q').forEach(function(b){
+  b.addEventListener('click',function(){
+    var open=b.getAttribute('aria-expanded')==='true';
+    $$('.q').forEach(function(o){o.setAttribute('aria-expanded','false');o.closest('.qa').classList.remove('open')});
+    if(!open){b.setAttribute('aria-expanded','true');b.closest('.qa').classList.add('open')}
+  });
+});
+(function(){var f=$('.q');f.setAttribute('aria-expanded','true');f.closest('.qa').classList.add('open')})();
+
+/* Reviews */
+(function(){
+  var rail=$('#rail');
+  function by(dir){var w=rail.firstElementChild.getBoundingClientRect().width+16;rail.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'})}
+  $('#rPrev').addEventListener('click',function(){by(-1)});
+  $('#rNext').addEventListener('click',function(){by(1)});
+  rail.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();by(1)}if(e.key==='ArrowLeft'){e.preventDefault();by(-1)}});
+})();
+
+/* Copy buttons */
+$$('[data-copy]').forEach(function(b){b.addEventListener('click',function(){copyText(b.getAttribute('data-copy'),currentLanguage==='ne'?'प्रतिलिपि गरियो':'Copied')})});
+
+/* Reveal */
+(function(){
+  var els=$$('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e,i){e.style.transitionDelay=((i%4)*70)+'ms';io.observe(e)});
+  var ring=$('#ringTile');
+  var io2=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');io2.disconnect()}})},{threshold:.4});
+  io2.observe(ring);
+})();
+
+/* Process progress line + nav highlight + mobile bar */
+(function(){
+  var track=$('#track'),steps=$('.steps');var ticking=false;
+  function calcP(){
+    var r=steps.getBoundingClientRect(),vh=window.innerHeight;
+    var p=(vh*0.85-r.top)/(r.height+vh*0.2);
+    p=Math.max(0,Math.min(1,p));
+    track.style.setProperty('--p',p.toFixed(3));
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(calcP)}},{passive:true});
+  calcP();
+  var links=$$('.nav-links a,.mobile-links a');
+  var map={};links.forEach(function(a){var id=a.getAttribute('href').slice(1);(map[id]||(map[id]=[])).push(a)});
+  function setActive(id){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+id)})}
+  setActive('top');
+  links.forEach(function(a){a.addEventListener('click',function(){setActive(a.getAttribute('href').slice(1))})});
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){
+    if(!map[x.target.id])return;
+    if(x.isIntersecting)setActive(x.target.id);
+  })},{rootMargin:'-40% 0px -55% 0px'});
+  ['services','how','areas','why','reviews','faq','contact'].forEach(function(id){var e=document.getElementById(id);if(e)io.observe(e)});
+  var mb=$('#mbar');
+  var barSections=[$('#areas'),$('#why'),$('#contact')];
+  var io3=new IntersectionObserver(function(){
+    var covered=barSections.some(function(s){var r=s.getBoundingClientRect();return r.bottom>0&&r.top<window.innerHeight});
+    mb.classList.toggle('hide',covered);
+  },{threshold:0});
+  barSections.forEach(function(s){io3.observe(s)});
+})();
+
+/* Init */
+renderPins();renderAreaCard();renderAreaList('');
+setLanguage(savedLanguage);
+})();
+</script>
+
+</body>
+</html>
